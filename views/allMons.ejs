@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All the Pokemon!</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<style>
+  body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.5em 0;
+}
+
+h3 {
+  font-size: 1.2em;
+  margin: 0.5em 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  font-size: 1.2em;
+  margin: 0.5em 0;
+}
+
+.pokemon-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 1em;
+  padding: 1em;
+}
+
+.pokemon-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pokemon-card .pokemon-name {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.pokemon-card .pokemon-type {
+  font-size: 1.2em;
+  color: #777;
+}
+
+.pokemon-card .pokemon-moves {
+  margin: 0.5em 0;
+}
+
+.pokemon-card .pokemon-move {
+  font-size: 1.2em;
+}
+
+</style>
+<body>
+<a href="/createMon">Create your own Pokemon</a>
+
+  <% pokemon.forEach((mon) => { %>
+
+  <h1>
+    PokedexNo. <%= mon.PokedexNo %>
+  </h1>
+  <div class="pokemon-card">
+  <h1 class="pokemon-name">
+    Name: <a href="/oneMon/<%= mon.Name %>"><%= mon.Name %></a>
+  </h1>
+  <h3 class="pokemon-type">
+    Type: <%= mon.Type %>
+  </h3>
+  <ul class="pokemon-moves">
+      Moves:
+      <% mon.Moves.forEach((move) => { %>`
+      <li class="pokemon-move">
+        <%= move %>
+      </li>
+    <% }) %>
+  </ul>
+  </div>
+<% }) %>
+</body>
+</html>
